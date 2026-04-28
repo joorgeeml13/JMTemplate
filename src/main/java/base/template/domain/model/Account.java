@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-//Clase base account
 public class Account {
     private UUID id;
     private String email;
