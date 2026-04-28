@@ -1,33 +1,46 @@
-HELP.md
+### --- Java & Spring Boot --- ###
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Carpetas de compilación
 target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+bin/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+.gradle/
 
-### VS Code ###
+### --- IntelliJ & VS Code --- ###
+.idea/
+*.iml
 .vscode/
+*.code-workspace
+.classpath
+.project
+.settings/
+nbproject/
+build.xml
+
+### --- Docker & Environment --- ###
+# IMPORTANTE: No subir las credenciales reales
+.env
+docker-compose.override.yml
+
+# Datos persistentes de las bases de datos (si las mapeas a carpetas locales)
+postgres_data/
+redis_data/
+
+### --- Logs & Temp --- ###
+logs/
+*.temp
+*.tmp
+.DS_Store (solo si usas Mac)
+
+### --- Help & Wrappers --- ###
+.mvn/wrapper/
+mvnw
+mvnw.cmd
+.gradle/wrapper/
+gradlew
+gradlew.bat
