@@ -2,6 +2,7 @@ package base.template.infrastructure.adapters.out.jwt;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
+import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -53,12 +54,7 @@ public class JwtTokenAdapter implements TokenUtils{
             .signWith(secretKey)
             .compact();
 
-        String refreshToken = Jwts.builder()
-                .subject(account.getId().toString())
-                .issuedAt(new Date())
-                .expiration(new Date(System.currentTimeMillis() + refreshTokenExpirationMs))
-                .signWith(secretKey)
-                .compact();
+        String refreshToken = UUID.randomUUID().toString();
 
         return new AuthTokens(accessToken, refreshToken);
     }

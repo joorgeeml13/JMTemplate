@@ -1,5 +1,7 @@
 package base.template.application.service.auth;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import base.template.application.ports.in.auth.command.RegisterCommand;
 import base.template.application.ports.in.auth.usecase.RegisterAccountUseCase;
 import base.template.application.ports.out.AccountRepositoryPort;
@@ -26,6 +28,7 @@ public class RegisterAccountService implements RegisterAccountUseCase{
     }
 
     @Override
+    @Transactional
     public void execute(RegisterCommand command) {
         Email email = new Email(command.email());
         RawPassword rawPassword = new RawPassword(command.password());
