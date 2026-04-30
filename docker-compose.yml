@@ -29,30 +29,6 @@ services:
       timeout: 5s
       retries: 5
 
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: ${APP_NAME:-base-template}
-    ports:
-      - "${SERVER_PORT:-9000}:${SERVER_PORT:-9000}"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - DB_HOST=db
-      - DB_PORT=5432
-      - DB_NAME=${DB_NAME:-template_db}
-      - DB_USER=${DB_USER:-dev_user}
-      - DB_PASSWORD=${DB_PASSWORD:-dev_password}
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - JWT_SECRET=${JWT_SECRET}
-    depends_on:
-      db:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-    restart: unless-stopped
-
   pgadmin_ui:
     image: dpage/pgadmin4:latest
     container_name: pgadmin_web_ui
